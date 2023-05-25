@@ -1,0 +1,30 @@
+#include <iostream>
+#include <cstdlib>
+#include <ctime>
+
+int main() {
+    srand(time(0)); // Inicializar la semilla del generador de números aleatorios
+
+    int numeroSecreto = rand() % 100 + 1; // Generar un número aleatorio entre 1 y 100
+    int intentos = 0;
+    int intento;
+
+    std::cout << "Bienvenido al juego de adivinanzas!\n";
+    std::cout << "Estoy pensando en un número entre 1 y 100.\n";
+
+    do {
+        std::cout << "Introduce tu intento: ";
+        std::cin >> intento;
+        intentos++;
+
+        if (intento > numeroSecreto) {
+            std::cout << "Demasiado alto. Intenta de nuevo.\n";
+        } else if (intento < numeroSecreto) {
+            std::cout << "Demasiado bajo. Intenta de nuevo.\n";
+        } else {
+            std::cout << "¡Felicidades! Adivinaste el número en " << intentos << " intentos.\n";
+        }
+    } while (intento != numeroSecreto);
+
+    return 0;
+}
